@@ -17,7 +17,8 @@ const AllDataShow = (props) => {
         .then(res => res.json())
         .then(data =>{
             console.log(data)
-            document.getElementById('none').style.display = 'none'
+            props.handleShow()
+
         })
     }
     return (

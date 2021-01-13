@@ -17,7 +17,13 @@ const ShowCountry = (props) => {
             body:formData
         })
         .then(res => res.json())
-        .then(result => console.log(result))
+        .then(result => 
+            {
+                console.log(result)
+                props.handleShow()
+            }
+            
+            )
 
     }
     return (

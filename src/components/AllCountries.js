@@ -17,17 +17,26 @@ const AllCountries = () => {
         .then(data => setAllDataShow(data.data))
     },[])
 
+    const handleShow=() => {
+        fetch('http://localhost:5000/readdata')
+        .then(res => res.json())
+        .then(data => setAllDataShow(data.data))
+    }
+
     return (
         <Container>
             <Row>
                 <Col md={6}>
+                    <h1>{allCountry.length}</h1>
                     {
-                        allCountry.map(view =>(<ShowCountry view={view}></ShowCountry>))
+                        allCountry.map(view =>(<ShowCountry handleShow={handleShow} view={view}></ShowCountry>))
                     }
                 </Col>
                 <Col md={6}>
+                <h1>{allDataShow.length}</h1>
+
                 {
-                        allDataShow.map(view =>(<AllDataShow view={view}></AllDataShow>))
+                        allDataShow.map(view =>(<AllDataShow handleShow={handleShow} view={view}></AllDataShow>))
                     }
                 </Col>
             </Row>
